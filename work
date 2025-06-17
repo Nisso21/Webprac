@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Election</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+    .container {
+      background-color: white;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 800px;
+      width: 100%;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header img {
+      height: 60px;
+    }
+    .header-text {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .title {
+      color: #3b5cad;
+      font-weight: bold;
+      font-size: 18px;
+      margin: 20px 0 10px;
+    }
+    .content {
+      display: flex;
+      justify-content: space-between;
+    }
+    .description {
+      width: 65%;
+      font-size: 14px;
+    }
+    .candidate {
+      border: 1px solid #999;
+      padding: 5px;
+      text-align: center;
+    }
+    .candidate img {
+      width: 140px;
+    }
+    .candidate-name {
+      font-weight: bold;
+      margin-top: 5px;
+    }
+    .radio {
+      margin: 20px 0 10px;
+      font-size: 14px;
+    }
+    .buttons {
+      display: flex;
+      gap: 10px;
+    }
+    .buttons button {
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+    }
+    .submit-btn {
+      background-color: #ccc;
+      color: white;
+      cursor: not-allowed;
+    }
+    .next-btn {
+      background-color: #3b5cad;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="data:image/png;base64,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">
+      <div class="header-text">Students Union Electoral Committee</div>
+    </div>
+
+    <div class="title">Election for a students' President</div>
+
+    <div class="content">
+      <div class="description">
+        <p>As the leading student representative, I will ensure that your voice is heard.</p>
+        <p>I promise to make my leading team responsible in creating an engaging students' community at the University and promote inclusion and diversity within the University.</p>
+        <p>Elect me for your better experience at the Campus.</p>
+      </div>
+      <div class="candidate">
+        <img src="https://learn.oncampus.ac.uk/courses/364/files/189288/preview" alt="Sue Jammy"/>
+        <div class="candidate-name">Sue Jammy</div>
+      </div>
+    </div>
+
+    <div class="radio">
+      <input type="radio" id="jammy" name="candidate" />
+      <label for="jammy">I choose Jammy</label>
+    </div>
+
+    <div class="buttons">
+      <button class="submit-btn" disabled>Submit</button>
+      <button class="next-btn">Next Candidate &gt;</button>
+    </div>
+  </div>
+</body>
+</html>
